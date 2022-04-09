@@ -1,0 +1,6 @@
+alias tmuxa="tmux attach-session -t"
+alias tmuxl="tmux list-sessions"
+
+alias kx="kubectx"
+alias kn="kubens"
+alias k="kubectl"
