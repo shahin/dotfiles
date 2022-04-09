@@ -1,10 +1,4 @@
-source $HOME/.bashrc
-
-# pure zsh prompt
-# https://github.com/sindresorhus/pure
-fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
-prompt pure
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # better zsh vi mode
 source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
