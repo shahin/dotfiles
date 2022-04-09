@@ -5,3 +5,6 @@ source $HOME/.bashrc
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
+
+# better zsh vi mode
+source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
