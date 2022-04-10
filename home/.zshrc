@@ -1,5 +1,8 @@
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+source "$HOME/.alias"
+source "$HOME/.env"
+
 # starship prompt
 if ! type "$foobar_command_name" > /dev/null; then
     eval "$(starship init zsh)"
