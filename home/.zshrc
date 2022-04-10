@@ -8,4 +8,6 @@ fi
 # better zsh vi mode
 source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# initialize fzf
+# must be after sourcing zsh-vi-mode.plugin.zsh
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
