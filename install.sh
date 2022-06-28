@@ -4,7 +4,7 @@ set -euo pipefail
 set -x
 
 # install dotfiles manager
-rm -rf $HOME/.homesick/repos/homeshick && \
+rm -rf $HOME/.homesick && \
     git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 
 # install starship prompt
