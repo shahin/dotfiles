@@ -5,7 +5,6 @@ source "$HOME/.env"
 
 # starship prompt
 if ! typeset -f starship_zle-keymap-select > /dev/null; then
-    echo "starship"
     eval "$(starship init zsh)"
 fi
 
