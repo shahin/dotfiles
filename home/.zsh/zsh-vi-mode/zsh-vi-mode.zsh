@@ -1901,7 +1901,6 @@ function zvm_select_surround() {
   MARK=$bpos; CURSOR=$epos-1
 
   # refresh current mode for prompt redraw
-  zle reset-prompt
 }
 
 # Change surround in vicmd or visual mode
@@ -2301,7 +2300,6 @@ function zvm_switch_keyword() {
     BUFFER="${BUFFER:0:$bpos}${result[1]}${BUFFER:$epos}"
     CURSOR=$((bpos + ${#result[1]} - 1))
 
-    zle reset-prompt
     return
   done
 }
@@ -2955,7 +2953,6 @@ function zvm_postpone_reset_prompt() {
   else
     if [[ $ZVM_POSTPONE_RESET_PROMPT == false || $force ]]; then
       ZVM_POSTPONE_RESET_PROMPT=
-      zle reset-prompt
     else
       ZVM_POSTPONE_RESET_PROMPT=
     fi
@@ -2972,7 +2969,6 @@ function zvm_reset_prompt() {
 
   local -i retval
   if [[ -z "$rawfunc" ]]; then
-    zle .reset-prompt -- "$@"
   else
     $rawfunc -- "$@"
   fi
