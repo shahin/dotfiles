@@ -14,3 +14,26 @@ source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # initialize fzf
 # must be after sourcing zsh-vi-mode.plugin.zsh
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
+FZF_DEFAULT_COMMAND="rg --files --hidden --sort-files -g '!.git/' 2>/dev/null"
+FZF_CTRL_T_COMMAND="rg --files --hidden --sort-files -g '!.git/' 2>/dev/null"
+
+_fzf_compgen_path() {
+  rg --files --hidden . 2>/dev/null
+}
+
+_fzf_compgen_dir() {
+  rg --hidden --sort-files --files --null . 2>/dev/null | xargs -0 dirname | uniq
+}
+
+# initialize node nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# intialize pyenv
+eval "$(pyenv init -)"
+
+# history config
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
