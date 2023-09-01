@@ -26,9 +26,6 @@ Plug 'junegunn/fzf.vim'
 " hashicorp terraform
 Plug 'hashivim/vim-terraform'
 
-" starlark for Tiltfiles
-Plug 'cappyzawa/starlark.vim'
-
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -68,6 +65,8 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 set wildmode=longest,list,full
 set wildmenu
 
+set regexpengine=0
+
 syntax on
 filetype plugin indent on
 
@@ -80,3 +79,12 @@ set ruler
 set number
 
 set laststatus=2
+
+" enable command-v paste in zsh-vi-mode in tmux
+" https://vi.stackexchange.com/a/28284
+if &term =~ "screen"                                                   
+    let &t_BE = "\e[?2004h"                                              
+    let &t_BD = "\e[?2004l"                                              
+    exec "set t_PS=\e[200~"                                              
+    exec "set t_PE=\e[201~"                                              
+endif

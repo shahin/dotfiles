@@ -16,4 +16,4 @@ rm -f install-starship.sh && \
 # add dotfiles
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 homeshick clone --batch shahin/dotfiles
-homeshick link dotfiles
+homeshick link --force dotfiles
