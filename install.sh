@@ -8,7 +8,7 @@ rm -rf $HOME/.homesick && \
     git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 
 # install starship prompt
-rm install-starship.sh && \
+rm -f install-starship.sh && \
     curl -sS https://starship.rs/install.sh >install-starship.sh && \
     chmod 755 install-starship.sh && \
     ./install-starship.sh --yes
