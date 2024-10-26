@@ -28,10 +28,12 @@ _fzf_compgen_dir() {
 
 # initialize node nvm
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+(command -v brew && source $(brew --prefix nvm)/nvm.sh) || true
 
 # intialize pyenv
-eval "$(pyenv init -)"
+if command -v pyenv; then
+    eval "$(pyenv init -)"
+fi
 
 # history config
 setopt share_history
