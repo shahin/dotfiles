@@ -4,3 +4,5 @@ alias tmuxl="tmux list-sessions"
 alias kx="kubectx"
 alias kn="kubens"
 alias k="kubectl"
+
+alias assume=". assume"
