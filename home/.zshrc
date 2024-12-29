@@ -26,16 +26,15 @@ _fzf_compgen_dir() {
   rg --hidden --sort-files --files --null . 2>/dev/null | xargs -0 dirname | uniq
 }
 
-# initialize node nvm
-export NVM_DIR=~/.nvm
-(command -v brew && source $(brew --prefix nvm)/nvm.sh) || true
-
-# intialize pyenv
-if command -v pyenv; then
-    eval "$(pyenv init -)"
-fi
-
 # history config
 setopt share_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
+
+# fnm
+FNM_PATH="/Users/shahin/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/Users/shahin/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+export PATH="/Users/shahin/.pixi/bin:$PATH"

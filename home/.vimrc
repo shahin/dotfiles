@@ -1,4 +1,9 @@
 set encoding=utf-8
+set termguicolors
+
+" yank to system clipboard on mac and linux
+" https://stackoverflow.com/a/10979533
+set clipboard=unnamed
 
 " Install vim-plug if not yet installed
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -10,25 +15,23 @@ endif
 call plug#begin()
 " The default plugin directory will be as follows:
 " "   - Vim (Linux/macOS): '~/.vim/plugged'
-
-Plug 'google/vim-jsonnet'
-
-" for python langauge server support via pyright
+Plug 'tpope/vim-sensible'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' } " color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+Plug 'google/vim-jsonnet'
 " use tab for autocomplete
 Plug 'ervandew/supertab'
-
 " fuzzy file finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 " hashicorp terraform
 Plug 'hashivim/vim-terraform'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
+
+let g:coc_global_extensions = ['coc-pyright', 'coc-json']
 
 " start coc configs
 " GoTo code navigation.
@@ -45,6 +48,7 @@ function! ShowDocumentation()
     call feedkeys('K', 'in')
   endif
 endfunction
+autocmd BufWritePre *.py :silent call CocAction('runCommand', 'python.sortImports')
 " end coc configs
 
 " start fzf configs
@@ -67,8 +71,9 @@ set wildmenu
 
 set regexpengine=0
 
-syntax on
-filetype plugin indent on
+" vimplug automatically executes `filetype plugin indent on` and `syntax enable`.
+" syntax on
+" filetype plugin indent on
 
 set tabstop=4
 set softtabstop=4

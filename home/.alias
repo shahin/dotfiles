@@ -5,4 +5,4 @@ alias kx="kubectx"
 alias kn="kubens"
 alias k="kubectl"
 
-alias assume=". assume"
+alias gl="git lg -n 5"
