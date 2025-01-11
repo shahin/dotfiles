@@ -37,4 +37,3 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/Users/shahin/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
-export PATH="/Users/shahin/.pixi/bin:$PATH"
